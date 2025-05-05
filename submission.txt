@@ -1,0 +1,19 @@
+# Menjalankan skrip
+py -m venv .env
+. .env\Scripts\Activate.ps1
+pip install -r requirements.txt
+python main.py
+
+# Menjalankan unit test pada folder tests
+python -m unittest discover -s tests -p "test_*.py"
+atau
+python -m unittest test/test_extract.py
+python -m unittest test/test_transform.py
+python -m unittest test/test_load.py
+
+# Menjalankan test coverage pada folder tests
+$env:PYTHONPATH = "."
+pytest --cov=utils --cov-report=term-missing tests/
+
+# Url Google Sheets:
+https://docs.google.com/spreadsheets/d/1eNwOIu52kn1lO0t8ka9MvF8FKDhfBaU0OB8cidacd_Y/edit?usp=sharing
